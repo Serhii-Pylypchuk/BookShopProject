@@ -1,0 +1,188 @@
+	*{ padding:0px; margin:0px;	}
+	header,footer,nav,section,article{display:block} /*для кросбраузерности семантичных елементов html5*/
+	button, input[type='button'], input[type='submit'], input[type='reset']{outline:none;cursor:pointer;}
+	a{
+		text-decoration:none;
+		color:black;
+		outline: none;
+	}
+
+	/*примеси*/
+	.size{ min-height:100%;  min-width:310px; }
+
+	/*переменные*/
+	@bg_color:#404040; /*цвет фона для хеадера и футера*/
+
+	/*стили для резинового каркаса*/
+	html{ 
+		position:relative; 
+		.size;
+		body{
+			.size;
+			background-color: rgb(245, 245, 239);
+		}	
+	}
+
+
+	/*стили для хеадера*/
+	header{
+		position:relative;
+		height:70px;
+		background:@bg_color;
+		width: 100%;
+		color:white;
+		
+		h1{
+			padding:13px;
+			font-family: 'Amatic SC', cursive;
+		}
+
+	}
+
+	/*Стили для ответа сервера на отправленную форму заказа книги*/
+	.user_form_server_answer{
+		display:none;
+		position:fixed;
+		width:100%;
+		text-align:center;
+		height:20px;
+		padding-top:5px;
+	}
+
+	/*Стили для кнопки возврата к писателям*/
+	.return_back{
+		display:block;
+		border:1px solid black;
+		padding:3px;
+		margin:5px;
+		margin-bottom:10px;
+		border-radius:4px;
+		text-align:center;
+		width:153px;
+	}
+
+	.return_back:hover{
+		border-color:blue;
+		color:blue;
+	}
+
+	/*Стили для формы установления количества элементов на странице*/
+	form[name='el_count_form']{
+		border:1px solid black;
+		border-radius:4px;
+		width:140px;
+		padding:10px;
+		margin:5px;	
+	}
+
+	#content {
+		word-wrap:break-word;//обрывает слова и не дает им выходить за пределы блока
+		padding-top:5px;
+		padding-bottom: 150px;
+		
+		/*Стиль для отрицательного ответа из сервера*/
+		.neg_answer{
+			.user_form_server_answer;
+			font-size:16pt;
+			color:red;
+			display:block;
+		}
+		
+		.books_list, .writers_list{
+			.book, .writer{
+				border-radius:4px;
+				margin:5px;
+				margin-bottom:10px;
+				padding:5px;
+				
+				img{
+					border: 1px solid black;
+					border-radius: 4px;
+					padding:5px;
+				}
+				
+				button{					
+					color: white;
+					cursor: pointer;
+					padding: 10px;
+					background-color: rgb(31, 122, 31);
+					border-radius:4px;
+					width:210px;
+					margin-top:5px;
+				}
+				button:hover{
+					background-color: rgb(21, 81, 21);
+				}
+			}
+			.book:hover, .writer:hover{
+				background-color: rgb(215, 215, 193);
+			}
+		}
+	}
+
+	footer {
+		height: 100px; 
+		background: @bg_color;
+		color:white;
+		position: absolute;
+		bottom: 0;
+		left:0;
+		right:0;
+		padding-left:40px;
+	}
+
+	/*стили для кнопок пагинации*/
+	.forPagButton{
+		border-color:red;
+		display:block;
+		max-width:205px;
+		height:40px;
+		margin-top:20px;
+		margin-left:auto;
+		margin-right:auto;
+		position:relative;
+		
+		a{
+			display:inline-block;
+			padding-top:5px;
+			text-align:center;
+			font-size:9pt;
+			width:30px;
+			height:20px;
+			margin:5px;
+			border-radius:5px;
+			background:#b3b3b3;
+			color:white;
+			font-weight: 600;
+		}
+		
+	}
+
+
+	/*описание класов, которые регулируются скриптом*/
+	.hide{
+		display:none !important;
+	}
+
+	.show{
+		display:block !important;
+	}
+
+	.error{
+		letter-spacing:1px;
+		color:red !important;
+		font-size:10pt;	
+	}
+
+	.succes{
+		letter-spacing:1px;
+		color:green !important;
+		font-size:10pt;
+	}
+
+	.active{
+		color:red !important;
+	}
+
+
+
