@@ -25,6 +25,9 @@ class Controller extends View{
 				//Формируем запрос к таблице с именем $writers_table_name
 				//$query = "SELECT * FROM ".$writers_table_name;
 				
+				//указывает серверу нa необходимость перекодировать результаты запроса в определенную кодировку перед выдачей их клиенту. Это делается во избежании отображения кирилических символов как знаков вопроса
+				$this -> db_link -> query("SET character_set_results='utf8'");
+				
 				//Получаем массив данных из базы по запросу $query
 				$result = $this -> db_link -> query("SELECT * FROM ".$writers_table_name) or die("<p class = 'neg_answer'> К сожалению не удалось сформировать список писателей </p>");//$link -> error() - информация об ошибке
 
