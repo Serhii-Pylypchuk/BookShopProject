@@ -29,6 +29,10 @@ class SendMail extends Validation{
 				
 				//Формируется запрос в таблицу к определенной строке с id = $bookid
 				//$query = "SELECT * FROM ".$bookstablename." WHERE id=".$bookid;
+				
+				//указывает серверу нa необходимость перекодировать результаты запроса в определенную кодировку перед выдачей их клиенту. Это делается во избежании отображения кирилических символов как знаков вопроса
+				$this -> db_link -> query("SET character_set_results='utf8'");
+				
 				//Результат запроса
 				$result = $this -> db_link -> query("SELECT * FROM ".$bookstablename." WHERE id=".$bookid) or die("К сожалению данные отсутствуют");//die("Ошибка ".mysqli_error($link));
 				if($result && $username && $useremail){
