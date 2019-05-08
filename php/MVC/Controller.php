@@ -59,7 +59,10 @@ class Controller extends View{
 				$book_table_name = trim($parameters_arr->{'book_table_key'});//Получаем имя таблицы к которой будем обращаться
 				$elements_count = (int)trim($parameters_arr->{'count'});//Получаем количество элементов на странице
 				$current_page = (int)trim($parameters_arr->{'page'});//Получаем текущую страницу
-
+				
+				//указывает серверу нa необходимость перекодировать результаты запроса в определенную кодировку перед выдачей их клиенту. Это делается во избежании отображения кирилических символов как знаков вопроса
+				$this -> db_link -> query("SET character_set_results='utf8'");
+				
 				//OOP подход
 				$result = $this -> db_link -> query("SELECT * FROM ".$book_table_name) or die("<p class = 'neg_answer'> К сожалению книги данного автора отсутствуют </p>");//$link -> error() - информация об ошибке
 				 
